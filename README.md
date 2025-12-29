@@ -1,2 +1,2 @@
 # morse
-Azure Function Morse code translator 
+Morse code translator 
