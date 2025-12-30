@@ -1,0 +1,42 @@
+{
+  "name": "morse",
+  "version": "1.0.0",
+  "description": "Morse Code Translator Web App",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage",
+    "test:e2e": "playwright test",
+    "lint": "eslint src/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acworkma/morse.git"
+  },
+  "keywords": [
+    "morse",
+    "translator",
+    "morse-code",
+    "web-app"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/acworkma/morse/issues"
+  },
+  "homepage": "https://github.com/acworkma/morse#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.57.0",
+    "@vitest/coverage-v8": "^4.0.16",
+    "@vitest/ui": "^4.0.16",
+    "eslint": "^9.39.2",
+    "jsdom": "^27.4.0",
+    "playwright": "^1.57.0",
+    "vite": "^5.4.21",
+    "vitest": "^4.0.16"
+  }
+}

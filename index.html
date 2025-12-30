@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Translate text to Morse code and vice versa with audio playback">
+  <title>Morse Code Translator</title>
+  <link rel="stylesheet" href="/src/styles/main.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Morse Code Translator</h1>
+      <p class="subtitle">Translate between text and International Morse Code</p>
+    </header>
+
+    <main>
+      <section class="translator-section">
+        <div class="input-group">
+          <label for="text-input">Text Input</label>
+          <input 
+            type="text" 
+            id="text-input" 
+            placeholder="Type text here (A-Z, 0-9, punctuation)"
+            maxlength="2000"
+            autocomplete="off"
+          />
+        </div>
+
+        <div class="output-group">
+          <label>Morse Code Output</label>
+          <div id="morse-output" class="output-display morse-display"></div>
+          <button id="play-audio" class="btn btn-primary" type="button">
+            ▶ Play Audio
+          </button>
+          <button id="copy-morse" class="btn btn-secondary" type="button">
+            📋 Copy Morse
+          </button>
+        </div>
+      </section>
+
+      <div class="divider">⇄</div>
+
+      <section class="translator-section">
+        <div class="input-group">
+          <label for="morse-input">Morse Code Input</label>
+          <textarea 
+            id="morse-input" 
+            placeholder="Enter Morse code (dots, dashes, spaces, /)"
+            rows="3"
+            maxlength="6000"
+          ></textarea>
+        </div>
+
+        <div class="output-group">
+          <label>Text Output</label>
+          <div id="text-output" class="output-display text-display"></div>
+          <button id="copy-text" class="btn btn-secondary" type="button">
+            📋 Copy Text
+          </button>
+        </div>
+      </section>
+
+      <div class="controls">
+        <button id="clear-all" class="btn btn-outline" type="button">
+          🗑️ Clear All
+        </button>
+      </div>
+
+      <div id="error-messages" class="error-container" role="alert"></div>
+    </main>
+  </div>
+
+  <div id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

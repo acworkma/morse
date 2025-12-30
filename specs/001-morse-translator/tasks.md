@@ -19,15 +19,15 @@
 
 **Purpose**: Project initialization and basic structure
 
-- [ ] T001 Create project directory structure: src/, tests/, public/ directories at repository root
-- [ ] T002 Initialize Node.js project with package.json (Vite 5.x, Vitest, Playwright dev dependencies)
-- [ ] T003 [P] Create vite.config.js with base path './' and target 'es2022'
-- [ ] T004 [P] Create vitest.config.js for unit test configuration
-- [ ] T005 [P] Create playwright.config.js for E2E test configuration
-- [ ] T006 [P] Create .eslintrc.json with ES2022 recommended rules
-- [ ] T007 [P] Create .gitignore with node_modules, dist, coverage entries
-- [ ] T008 Create index.html entry point at repository root
-- [ ] T009 [P] Create src/styles/main.css with CSS reset and responsive base styles
+- [X] T001 Create project directory structure: src/, tests/, public/ directories at repository root
+- [X] T002 Initialize Node.js project with package.json (Vite 5.x, Vitest, Playwright dev dependencies)
+- [X] T003 [P] Create vite.config.js with base path './' and target 'es2022'
+- [X] T004 [P] Create vitest.config.js for unit test configuration
+- [X] T005 [P] Create playwright.config.js for E2E test configuration
+- [X] T006 [P] Create .eslintrc.json with ES2022 recommended rules
+- [X] T007 [P] Create .gitignore with node_modules, dist, coverage entries
+- [X] T008 Create index.html entry point at repository root
+- [X] T009 [P] Create src/styles/main.css with CSS reset and responsive base styles
 
 ---
 
@@ -37,11 +37,11 @@
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T010 Create Morse code mapping data in src/translator/morseData.js (54 characters: A-Z, 0-9, punctuation)
-- [ ] T011 [P] Create base HTML structure in index.html with text-input, morse-input, output areas, and control buttons
-- [ ] T012 [P] Setup main.js entry point in src/main.js with app initialization
-- [ ] T013 [P] Create utility functions for debouncing in src/ui/utils.js
-- [ ] T014 Create responsive CSS Grid layout in src/styles/main.css (mobile-first, 320px-4K breakpoints)
+- [X] T010 Create Morse code mapping data in src/translator/morseData.js (54 characters: A-Z, 0-9, punctuation)
+- [X] T011 [P] Create base HTML structure in index.html with text-input, morse-input, output areas, and control buttons
+- [X] T012 [P] Setup main.js entry point in src/main.js with app initialization
+- [X] T013 [P] Create utility functions for debouncing in src/ui/utils.js
+- [X] T014 Create responsive CSS Grid layout in src/styles/main.css (mobile-first, 320px-4K breakpoints)
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
@@ -57,39 +57,39 @@
 
 ⚠️ **CRITICAL**: All tests below MUST be written and verified to FAIL before any US1 implementation tasks begin
 
-- [ ] T015 [P] [US1-TEST] Write unit test: translate("SOS", "toMorse") returns "... --- ..." in tests/unit/morseCodec.test.js
-- [ ] T016 [P] [US1-TEST] Write unit test: translate() handles lowercase input (converts to uppercase) in tests/unit/morseCodec.test.js
-- [ ] T017 [P] [US1-TEST] Write unit test: translate() handles numbers "123" correctly in tests/unit/morseCodec.test.js
-- [ ] T018 [P] [US1-TEST] Write unit test: translate() preserves word spacing with "/" in tests/unit/morseCodec.test.js
-- [ ] T019 [P] [US1-TEST] Write unit test: translate() filters unsupported characters and returns warnings in tests/unit/morseCodec.test.js
-- [ ] T020 [P] [US1-TEST] Write unit test: getSupportedCharacters() returns all 54 characters in tests/unit/morseCodec.test.js
-- [ ] T021 [P] [US1-TEST] Write unit test: play() schedules correct dit/dah tones in tests/unit/morsePlayer.test.js
-- [ ] T022 [P] [US1-TEST] Write unit test: play() uses ITU-R M.1677-1 timing (1:3:7 ratio) in tests/unit/morsePlayer.test.js
-- [ ] T023 [P] [US1-TEST] Write unit test: isSupported() detects Web Audio API availability in tests/unit/morsePlayer.test.js
-- [ ] T024 [US1-TEST] Write integration test: User types "HELLO", output displays ".... . .-.. .-.. ---" in tests/integration/translation.test.js
-- [ ] T025 [US1-TEST] Write integration test: Click play button triggers audio playback in tests/integration/audio.test.js
-- [ ] T026 [US1-TEST] Write E2E test: Full text-to-Morse workflow with audio in tests/e2e/translation.spec.js
-- [ ] T027 [US1-TEST] **VERIFY ALL US1 TESTS FAIL** - Run `npm test` and confirm all 13 US1 tests fail appropriately
+- [X] T015 [P] [US1-TEST] Write unit test: translate("SOS", "toMorse") returns "... --- ..." in tests/unit/morseCodec.test.js
+- [X] T016 [P] [US1-TEST] Write unit test: translate() handles lowercase input (converts to uppercase) in tests/unit/morseCodec.test.js
+- [X] T017 [P] [US1-TEST] Write unit test: translate() handles numbers "123" correctly in tests/unit/morseCodec.test.js
+- [X] T018 [P] [US1-TEST] Write unit test: translate() preserves word spacing with "/" in tests/unit/morseCodec.test.js
+- [X] T019 [P] [US1-TEST] Write unit test: translate() filters unsupported characters and returns warnings in tests/unit/morseCodec.test.js
+- [X] T020 [P] [US1-TEST] Write unit test: getSupportedCharacters() returns all 54 characters in tests/unit/morseCodec.test.js
+- [X] T021 [P] [US1-TEST] Write unit test: play() schedules correct dit/dah tones in tests/unit/morsePlayer.test.js
+- [X] T022 [P] [US1-TEST] Write unit test: play() uses ITU-R M.1677-1 timing (1:3:7 ratio) in tests/unit/morsePlayer.test.js
+- [X] T023 [P] [US1-TEST] Write unit test: isSupported() detects Web Audio API availability in tests/unit/morsePlayer.test.js
+- [X] T024 [US1-TEST] Write integration test: User types "HELLO", output displays ".... . .-.. .-.. ---" in tests/integration/translation.test.js
+- [X] T025 [US1-TEST] Write integration test: Click play button triggers audio playback in tests/integration/audio.test.js
+- [X] T026 [US1-TEST] Write E2E test: Full text-to-Morse workflow with audio in tests/e2e/translation.spec.js
+- [X] T027 [US1-TEST] **VERIFY ALL US1 TESTS FAIL** - Run `npm test` and confirm all 13 US1 tests fail appropriately
 
 **Checkpoint**: Tests written and failing ✅ - Ready to begin US1 implementation
 
 ### Implementation for User Story 1
 
-- [ ] T028 [P] [US1] Implement translate() function for text-to-Morse in src/translator/morseCodec.js (depends on T015-T020 passing)
-- [ ] T029 [P] [US1] Implement getSupportedCharacters() function in src/translator/morseCodec.js (depends on T020 passing)
-- [ ] T030 [US1] Add input validation and unsupported character filtering in src/translator/morseCodec.js (depends on T019 passing)
-- [ ] T031 [P] [US1] Create Web Audio API context initialization in src/audio/morsePlayer.js (depends on T023 passing)
-- [ ] T032 [P] [US1] Implement play() function with OscillatorNode tone generation in src/audio/morsePlayer.js (depends on T021-T022 passing)
-- [ ] T033 [US1] Implement Morse timing (dit/dah/gaps) per ITU-R M.1677-1 in src/audio/morsePlayer.js (depends on T022 passing)
-- [ ] T034 [US1] Add isSupported() check for Web Audio API in src/audio/morsePlayer.js (depends on T023 passing)
-- [ ] T035 [US1] Create UI controller init() function in src/ui/app.js
-- [ ] T036 [US1] Implement handleTextInput() with debouncing in src/ui/app.js (depends on T024 passing)
-- [ ] T037 [US1] Implement updateOutput() to display translation results in src/ui/app.js (depends on T024 passing)
-- [ ] T038 [US1] Implement handlePlayAudio() for audio playback control in src/ui/app.js (depends on T025 passing)
-- [ ] T039 [US1] Add error message display for unsupported characters in src/ui/app.js
-- [ ] T040 [US1] Style text input, Morse output, and play button in src/styles/main.css
-- [ ] T041 [US1] Add mobile-responsive touch targets (44x44px minimum) in src/styles/main.css
-- [ ] T042 [US1] **RUN ALL US1 TESTS** - Verify all 13 tests pass, 80%+ coverage achieved
+- [X] T028 [P] [US1] Implement translate() function for text-to-Morse in src/translator/morseCodec.js (depends on T015-T020 passing)
+- [X] T029 [P] [US1] Implement getSupportedCharacters() function in src/translator/morseCodec.js (depends on T020 passing)
+- [X] T030 [US1] Add input validation and unsupported character filtering in src/translator/morseCodec.js (depends on T019 passing)
+- [X] T031 [P] [US1] Create Web Audio API context initialization in src/audio/morsePlayer.js (depends on T023 passing)
+- [X] T032 [P] [US1] Implement play() function with OscillatorNode tone generation in src/audio/morsePlayer.js (depends on T021-T022 passing)
+- [X] T033 [US1] Implement Morse timing (dit/dah/gaps) per ITU-R M.1677-1 in src/audio/morsePlayer.js (depends on T022 passing)
+- [X] T034 [US1] Add isSupported() check for Web Audio API in src/audio/morsePlayer.js (depends on T023 passing)
+- [X] T035 [US1] Create UI controller init() function in src/ui/app.js
+- [X] T036 [US1] Implement handleTextInput() with debouncing in src/ui/app.js (depends on T024 passing)
+- [X] T037 [US1] Implement updateOutput() to display translation results in src/ui/app.js (depends on T024 passing)
+- [X] T038 [US1] Implement handlePlayAudio() for audio playback control in src/ui/app.js (depends on T025 passing)
+- [X] T039 [US1] Add error message display for unsupported characters in src/ui/app.js
+- [X] T040 [US1] Style text input, Morse output, and play button in src/styles/main.css
+- [X] T041 [US1] Add mobile-responsive touch targets (44x44px minimum) in src/styles/main.css
+- [X] T042 [US1] **RUN ALL US1 TESTS** - Verify all 13 tests pass, 80%+ coverage achieved
 
 **Checkpoint**: At this point, User Story 1 should be fully functional - users can type text and get Morse code with audio playback
 
@@ -105,30 +105,30 @@
 
 ⚠️ **CRITICAL**: All tests below MUST be written and verified to FAIL before any US2 implementation tasks begin
 
-- [ ] T043 [P] [US2-TEST] Write unit test: translate("... --- ...", "toText") returns "SOS" in tests/unit/morseCodec.test.js
-- [ ] T044 [P] [US2-TEST] Write unit test: translate() handles word separators "/" correctly in tests/unit/morseCodec.test.js
-- [ ] T045 [P] [US2-TEST] Write unit test: validateMorse("...") returns true, validateMorse(".......") returns false in tests/unit/morseCodec.test.js
-- [ ] T046 [P] [US2-TEST] Write unit test: translate() handles invalid Morse gracefully with error messages in tests/unit/morseCodec.test.js
-- [ ] T047 [US2-TEST] Write integration test: User enters Morse, output displays decoded text in tests/integration/translation.test.js
-- [ ] T048 [US2-TEST] Write integration test: Clear button resets both inputs and outputs in tests/integration/ui.test.js
-- [ ] T049 [US2-TEST] Write E2E test: Full Morse-to-text workflow in tests/e2e/translation.spec.js
-- [ ] T050 [US2-TEST] **VERIFY ALL US2 TESTS FAIL** - Run `npm test` and confirm all 7 US2 tests fail appropriately
+- [X] T043 [P] [US2-TEST] Write unit test: translate("... --- ...", "toText") returns "SOS" in tests/unit/morseCodec.test.js
+- [X] T044 [P] [US2-TEST] Write unit test: translate() handles word separators "/" correctly in tests/unit/morseCodec.test.js
+- [X] T045 [P] [US2-TEST] Write unit test: validateMorse("...") returns true, validateMorse(".......") returns false in tests/unit/morseCodec.test.js
+- [X] T046 [P] [US2-TEST] Write unit test: translate() handles invalid Morse gracefully with error messages in tests/unit/morseCodec.test.js
+- [X] T047 [US2-TEST] Write integration test: User enters Morse, output displays decoded text in tests/integration/translation.test.js
+- [X] T048 [US2-TEST] Write integration test: Clear button resets both inputs and outputs in tests/integration/ui.test.js
+- [X] T049 [US2-TEST] Write E2E test: Full Morse-to-text workflow in tests/e2e/translation.spec.js
+- [X] T050 [US2-TEST] **VERIFY ALL US2 TESTS FAIL** - Run `npm test` and confirm all 7 US2 tests fail appropriately
 
 **Checkpoint**: Tests written and failing ✅ - Ready to begin US2 implementation
 
 ### Implementation for User Story 2
 
-- [ ] T051 [P] [US2] Implement translate() function for Morse-to-text direction in src/translator/morseCodec.js (depends on T043-T044 passing)
-- [ ] T052 [P] [US2] Implement validateMorse() for pattern validation in src/translator/morseCodec.js (depends on T045 passing)
-- [ ] T053 [US2] Add reverse mapping (Morse to character) lookup in src/translator/morseCodec.js (depends on T043 passing)
-- [ ] T054 [US2] Handle word separators (/) and invalid sequences in src/translator/morseCodec.js (depends on T044, T046 passing)
-- [ ] T055 [US2] Implement handleMorseInput() with debouncing in src/ui/app.js (depends on T047 passing)
-- [ ] T056 [US2] Add Morse input validation (dots, dashes, spaces, /) in src/ui/app.js (depends on T045 passing)
-- [ ] T057 [US2] Display malformed Morse warnings in error area in src/ui/app.js (depends on T046 passing)
-- [ ] T058 [US2] Implement handleClear() to reset both inputs and outputs in src/ui/app.js (depends on T048 passing)
-- [ ] T059 [US2] Style Morse input textarea and text output display in src/styles/main.css
-- [ ] T060 [US2] Add clear button styling in src/styles/main.css
-- [ ] T061 [US2] **RUN ALL US2 TESTS** - Verify all 7 tests pass, bidirectional translation working
+- [X] T051 [P] [US2] Implement translate() function for Morse-to-text direction in src/translator/morseCodec.js (depends on T043-T044 passing)
+- [X] T052 [P] [US2] Implement validateMorse() for pattern validation in src/translator/morseCodec.js (depends on T045 passing)
+- [X] T053 [US2] Add reverse mapping (Morse to character) lookup in src/translator/morseCodec.js (depends on T043 passing)
+- [X] T054 [US2] Handle word separators (/) and invalid sequences in src/translator/morseCodec.js (depends on T044, T046 passing)
+- [X] T055 [US2] Implement handleMorseInput() with debouncing in src/ui/app.js (depends on T047 passing)
+- [X] T056 [US2] Add Morse input validation (dots, dashes, spaces, /) in src/ui/app.js (depends on T045 passing)
+- [X] T057 [US2] Display malformed Morse warnings in error area in src/ui/app.js (depends on T046 passing)
+- [X] T058 [US2] Implement handleClear() to reset both inputs and outputs in src/ui/app.js (depends on T048 passing)
+- [X] T059 [US2] Style Morse input textarea and text output display in src/styles/main.css
+- [X] T060 [US2] Add clear button styling in src/styles/main.css
+- [X] T061 [US2] **RUN ALL US2 TESTS** - Verify all 7 tests pass, bidirectional translation working
 
 **Checkpoint**: At this point, User Stories 1 AND 2 should both work independently - bidirectional translation is complete
 
@@ -144,29 +144,29 @@
 
 ⚠️ **CRITICAL**: All tests below MUST be written and verified to FAIL before any US3 implementation tasks begin
 
-- [ ] T062 [P] [US3-TEST] Write unit test: copy() successfully writes to clipboard in tests/unit/clipboard.test.js
-- [ ] T063 [P] [US3-TEST] Write unit test: copy() falls back to execCommand when Clipboard API unavailable in tests/unit/clipboard.test.js
-- [ ] T064 [P] [US3-TEST] Write unit test: copy() handles permission denied gracefully in tests/unit/clipboard.test.js
-- [ ] T065 [US3-TEST] Write integration test: Click copy button, clipboard contains correct content in tests/integration/clipboard.test.js
-- [ ] T066 [US3-TEST] Write integration test: Copy with empty output shows warning in tests/integration/clipboard.test.js
-- [ ] T067 [US3-TEST] Write integration test: Toast notification appears on successful copy in tests/integration/ui.test.js
-- [ ] T068 [US3-TEST] Write E2E test: Full copy workflow with clipboard verification in tests/e2e/clipboard.spec.js
-- [ ] T069 [US3-TEST] **VERIFY ALL US3 TESTS FAIL** - Run `npm test` and confirm all 7 US3 tests fail appropriately
+- [X] T062 [P] [US3-TEST] Write unit test: copy() successfully writes to clipboard in tests/unit/clipboard.test.js
+- [X] T063 [P] [US3-TEST] Write unit test: copy() falls back to execCommand when Clipboard API unavailable in tests/unit/clipboard.test.js
+- [X] T064 [P] [US3-TEST] Write unit test: copy() handles permission denied gracefully in tests/unit/clipboard.test.js
+- [X] T065 [US3-TEST] Write integration test: Click copy button, clipboard contains correct content in tests/integration/clipboard.test.js
+- [X] T066 [US3-TEST] Write integration test: Copy with empty output shows warning in tests/integration/clipboard.test.js
+- [X] T067 [US3-TEST] Write integration test: Toast notification appears on successful copy in tests/integration/ui.test.js
+- [X] T068 [US3-TEST] Write E2E test: Full copy workflow with clipboard verification in tests/e2e/clipboard.spec.js
+- [X] T069 [US3-TEST] **VERIFY ALL US3 TESTS FAIL** - Run `npm test` and confirm all 7 US3 tests fail appropriately
 
 **Checkpoint**: Tests written and failing ✅ - Ready to begin US3 implementation
 
 ### Implementation for User Story 3
 
-- [ ] T070 [P] [US3] Implement copy() function using Clipboard API in src/ui/clipboard.js (depends on T062 passing)
-- [ ] T071 [P] [US3] Add execCommand('copy') fallback for older browsers in src/ui/clipboard.js (depends on T063 passing)
-- [ ] T072 [US3] Handle clipboard permission errors gracefully in src/ui/clipboard.js (depends on T064 passing)
-- [ ] T073 [US3] Implement handleCopy() for both Morse and text outputs in src/ui/app.js (depends on T065 passing)
-- [ ] T074 [US3] Create showNotification() toast system in src/ui/app.js (depends on T067 passing)
-- [ ] T075 [US3] Add copy success/error notifications in src/ui/app.js (depends on T067 passing)
-- [ ] T076 [US3] Validate non-empty output before copy in src/ui/app.js (depends on T066 passing)
-- [ ] T077 [US3] Style copy buttons with clipboard icon in src/styles/main.css
-- [ ] T078 [US3] Create toast notification styles with auto-dismiss in src/styles/main.css
-- [ ] T079 [US3] **RUN ALL US3 TESTS** - Verify all 7 tests pass, clipboard functionality working
+- [X] T070 [P] [US3] Implement copy() function using Clipboard API in src/ui/clipboard.js (depends on T062 passing)
+- [X] T071 [P] [US3] Add execCommand('copy') fallback for older browsers in src/ui/clipboard.js (depends on T063 passing)
+- [X] T072 [US3] Handle clipboard permission errors gracefully in src/ui/clipboard.js (depends on T064 passing)
+- [X] T073 [US3] Implement handleCopy() for both Morse and text outputs in src/ui/app.js (depends on T065 passing)
+- [X] T074 [US3] Create showNotification() toast system in src/ui/app.js (depends on T067 passing)
+- [X] T075 [US3] Add copy success/error notifications in src/ui/app.js (depends on T067 passing)
+- [X] T076 [US3] Validate non-empty output before copy in src/ui/app.js (depends on T066 passing)
+- [X] T077 [US3] Style copy buttons with clipboard icon in src/styles/main.css
+- [X] T078 [US3] Create toast notification styles with auto-dismiss in src/styles/main.css
+- [X] T079 [US3] **RUN ALL US3 TESTS** - Verify all 7 tests pass, clipboard functionality working
 
 **Checkpoint**: All core translation and sharing features complete - app is fully functional for practical use
 
