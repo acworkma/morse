@@ -33,9 +33,28 @@
           <button id="play-audio" class="btn btn-primary" type="button">
             ▶ Play Audio
           </button>
+          <button id="stop-audio" class="btn btn-outline" type="button" disabled>
+            ⏹ Stop
+          </button>
           <button id="copy-morse" class="btn btn-secondary" type="button">
             📋 Copy Morse
           </button>
+        </div>
+        
+        <div class="speed-control">
+          <label for="speed-slider">Playback Speed</label>
+          <div class="speed-slider-container">
+            <input 
+              type="range" 
+              id="speed-slider" 
+              min="5" 
+              max="40" 
+              value="20" 
+              step="1"
+              aria-label="Adjust playback speed in words per minute"
+            />
+            <span id="speed-display" class="speed-value">20 WPM</span>
+          </div>
         </div>
       </section>
 

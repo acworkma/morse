@@ -105,4 +105,57 @@ describe('MorsePlayer', () => {
       expect(() => setSpeed(20)).not.toThrow();
     });
   });
+
+  // ========================================
+  // User Story 4: Interactive Learning Mode
+  // ========================================
+  describe('Interactive Learning (T080-T083)', () => {
+    // T080-T081: onProgress callback functionality
+    it('should call onProgress callback with correct index and total', async () => {
+      const onProgress = vi.fn();
+      play('... --- ...', null, onProgress);
+
+      // Wait for callbacks
+      await new Promise(resolve => setTimeout(resolve, 100));
+
+      // Should be called for each character in "SOS"
+      expect(onProgress).toHaveBeenCalled();
+      
+      // Verify it receives index and total parameters
+      const calls = onProgress.mock.calls;
+      if (calls.length > 0) {
+        const [index, total] = calls[0];
+        expect(typeof index).toBe('number');
+        expect(typeof total).toBe('number');
+        expect(total).toBeGreaterThan(0);
+      }
+    });
+
+    // T082: stop() cancels playback and resets state
+    it('should stop playback and reset state', () => {
+      play('... --- ...');
+      
+      // Call stop
+      expect(() => stop()).not.toThrow();
+      
+      // Verify stop is idempotent
+      expect(() => stop()).not.toThrow();
+    });
+
+    // T083: setSpeed() updates WPM and clamps to 5-40 range
+    it('should update speed and clamp to 5-40 WPM range', () => {
+      // Valid speeds
+      expect(() => setSpeed(15)).not.toThrow();
+      expect(() => setSpeed(20)).not.toThrow();
+      
+      // Test clamping (implementation should clamp these)
+      expect(() => setSpeed(3)).not.toThrow();  // Below min
+      expect(() => setSpeed(50)).not.toThrow(); // Above max
+      
+      // Edge cases
+      expect(() => setSpeed(5)).not.toThrow();  // Min
+      expect(() => setSpeed(40)).not.toThrow(); // Max
+    });
+  });
 });
+

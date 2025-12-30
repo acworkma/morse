@@ -30,6 +30,9 @@ describe('Clipboard Integration Tests', () => {
         <div id="error-messages"></div>
         <div id="toast-container"></div>
         <button id="play-audio">Play</button>
+        <button id="stop-audio">Stop</button>
+        <input type="range" id="speed-slider" min="5" max="40" value="20" />
+        <span id="speed-display">20 WPM</span>
         <button id="clear-all">Clear</button>
       </div>
     `;

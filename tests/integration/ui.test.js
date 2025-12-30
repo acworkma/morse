@@ -29,9 +29,13 @@ describe('UI Integration Tests', () => {
         </div>
         <div id="error-messages"></div>
         <button id="play-audio">Play</button>
+        <button id="stop-audio">Stop</button>
+        <input type="range" id="speed-slider" min="5" max="40" value="20" />
+        <span id="speed-display">20 WPM</span>
         <button id="copy-morse">Copy Morse</button>
         <button id="copy-text">Copy Text</button>
         <button id="clear-all">Clear</button>
+        <div id="toast-container"></div>
       </div>
     `;
 

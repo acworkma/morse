@@ -94,7 +94,7 @@ test.describe('Morse to Text Translation E2E', () => {
     await morseInput.fill('... --- ...');
 
     // Click clear button
-    const clearButton = page.locator('#clear-button');
+    const clearButton = page.locator('#clear-all');
     await clearButton.click();
 
     // Verify everything is cleared

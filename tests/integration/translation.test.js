@@ -18,6 +18,9 @@ describe('Translation Integration Tests', () => {
       <input id="morse-input" type="text" />
       <div id="text-output"></div>
       <button id="play-audio"></button>
+      <button id="stop-audio"></button>
+      <input type="range" id="speed-slider" min="5" max="40" value="20" />
+      <span id="speed-display">20 WPM</span>
       <button id="copy-morse"></button>
       <button id="copy-text"></button>
       <button id="clear-all"></button>

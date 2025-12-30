@@ -414,4 +414,111 @@ textarea {
   .toast {
     max-width: 100%;
   }
+}}
+
+/* T099: Character highlighting animation */
+.morse-display span.active {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+  animation: pulse 0.3s ease;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* T100: Speed slider and stop button styles */
+.speed-control {
+  margin-top: var(--spacing-lg);
+  padding: var(--spacing-md);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+}
+
+.speed-control label {
+  display: block;
+  margin-bottom: var(--spacing-sm);
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.speed-slider-container {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+#speed-slider {
+  flex: 1;
+  height: 8px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(to right, var(--color-primary) 0%, var(--color-primary) 50%, var(--color-border) 50%, var(--color-border) 100%);
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+#speed-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+#speed-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-md);
+}
+
+#speed-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+#speed-slider::-moz-range-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-md);
+}
+
+.speed-value {
+  min-width: 70px;
+  text-align: right;
+  font-weight: 600;
+  color: var(--color-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+#stop-audio {
+  background-color: var(--color-surface);
+  border-color: var(--color-error);
+  color: var(--color-error);
+}
+
+#stop-audio:hover:not(:disabled) {
+  background-color: var(--color-error);
+  color: white;
+}
+
+#stop-audio:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
 }

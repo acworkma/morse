@@ -4,7 +4,7 @@
  */
 
 import { translate } from '../translator/morseCodec.js';
-import { play, stop as stopAudio, isSupported as audioSupported } from '../audio/morsePlayer.js';
+import { play, stop as stopAudio, setSpeed, isSupported as audioSupported } from '../audio/morsePlayer.js';
 import { debounce } from './utils.js';
 import { copy } from './clipboard.js';
 
@@ -31,6 +31,9 @@ export function init() {
       morseOutput: document.getElementById('morse-output'),
       textOutput: document.getElementById('text-output'),
       playAudio: document.getElementById('play-audio'),
+      stopAudio: document.getElementById('stop-audio'),
+      speedSlider: document.getElementById('speed-slider'),
+      speedDisplay: document.getElementById('speed-display'),
       copyMorse: document.getElementById('copy-morse'),
       copyText: document.getElementById('copy-text'),
       clearAll: document.getElementById('clear-all'),
@@ -77,6 +80,8 @@ function attachEventListeners() {
 
   // Buttons
   elements.playAudio.addEventListener('click', handlePlayAudio);
+  elements.stopAudio?.addEventListener('click', handleStopAudio);
+  elements.speedSlider?.addEventListener('input', handleSpeedChange);
   elements.clearAll.addEventListener('click', handleClear);
   elements.copyMorse.addEventListener('click', () => handleCopy('morse'));
   elements.copyText.addEventListener('click', () => handleCopy('text'));
@@ -167,12 +172,28 @@ async function handlePlayAudio() {
     state.isPlaying = true;
     elements.playAudio.disabled = true;
     elements.playAudio.textContent = '⏸ Playing...';
+    
+    if (elements.stopAudio) {
+      elements.stopAudio.disabled = false;
+    }
 
-    await play(state.currentMorse);
+    // T094: Character highlighting during playback
+    const onProgress = (index, total) => {
+      highlightCharacter(index);
+    };
+
+    await play(state.currentMorse, null, onProgress);
 
     elements.playAudio.disabled = false;
     elements.playAudio.textContent = '▶ Play Audio';
     state.isPlaying = false;
+    
+    if (elements.stopAudio) {
+      elements.stopAudio.disabled = true;
+    }
+    
+    // Clear highlighting
+    clearHighlighting();
 
   } catch (error) {
     console.error('Audio playback error:', error);
@@ -180,6 +201,76 @@ async function handlePlayAudio() {
     elements.playAudio.disabled = false;
     elements.playAudio.textContent = '▶ Play Audio';
     state.isPlaying = false;
+    
+    if (elements.stopAudio) {
+      elements.stopAudio.disabled = true;
+    }
+    
+    clearHighlighting();
+  }
+}
+
+/**
+ * Handle stop audio button click
+ * T095: Stop playback and reset UI
+ */
+function handleStopAudio() {
+  stopAudio();
+  
+  state.isPlaying = false;
+  elements.playAudio.disabled = false;
+  elements.playAudio.textContent = '▶ Play Audio';
+  
+  if (elements.stopAudio) {
+    elements.stopAudio.disabled = true;
+  }
+  
+  clearHighlighting();
+}
+
+/**
+ * Handle speed slider change
+ * T096-T097: Update speed and display
+ */
+function handleSpeedChange(event) {
+  const wpm = parseInt(event.target.value, 10);
+  setSpeed(wpm);
+  
+  if (elements.speedDisplay) {
+    elements.speedDisplay.textContent = `${wpm} WPM`;
+  }
+}
+
+/**
+ * Highlight a character during playback
+ * T094: Visual feedback
+ * @param {number} index - Character index
+ * @private
+ */
+function highlightCharacter(index) {
+  clearHighlighting();
+  
+  const morseChars = state.currentMorse.split(' ');
+  if (index >= 0 && index < morseChars.length) {
+    // Wrap each character in spans for highlighting
+    const highlighted = morseChars.map((char, i) => {
+      if (i === index) {
+        return `<span class="active">${char}</span>`;
+      }
+      return `<span>${char}</span>`;
+    }).join(' ');
+    
+    elements.morseOutput.innerHTML = highlighted;
+  }
+}
+
+/**
+ * Clear character highlighting
+ * @private
+ */
+function clearHighlighting() {
+  if (elements.morseOutput && state.currentMorse) {
+    elements.morseOutput.textContent = state.currentMorse;
   }
 }
 
