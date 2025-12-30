@@ -44,11 +44,19 @@ export function translate(input, direction) {
     };
   }
 
+  let result;
   if (direction === 'toMorse') {
-    return translateToMorse(input, startTime);
+    result = translateToMorse(input, startTime);
   } else {
-    return translateToText(input, startTime);
+    result = translateToText(input, startTime);
   }
+
+  // Performance monitoring (log if translation takes >50ms)
+  if (result.duration > 50) {
+    console.warn(`[Performance] Translation took ${result.duration.toFixed(2)}ms (${direction}, ${input.length} chars)`);
+  }
+
+  return result;
 }
 
 /**

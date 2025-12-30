@@ -46,7 +46,8 @@ export function init() {
       .map(([name]) => name);
 
     if (missingElements.length > 0) {
-      console.error('Missing DOM elements:', missingElements);
+      console.error('[Init Error] Missing DOM elements:', missingElements);
+      showError('Application initialization failed. Please refresh the page.');
       return;
     }
 
@@ -55,13 +56,15 @@ export function init() {
     if (!state.audioSupported) {
       elements.playAudio.disabled = true;
       elements.playAudio.title = 'Audio not supported in this browser';
+      console.warn('[Audio] Web Audio API not supported in this browser');
     }
 
     // Attach event listeners
     attachEventListeners();
 
   } catch (error) {
-    console.error('Failed to initialize app:', error);
+    console.error('[Init Error] Failed to initialize app:', error);
+    showError('An unexpected error occurred. Please refresh the page.');
   }
 }
 
@@ -196,7 +199,7 @@ async function handlePlayAudio() {
     clearHighlighting();
 
   } catch (error) {
-    console.error('Audio playback error:', error);
+    console.error('[Audio Error] Playback failed:', error);
     showError('Audio playback failed: ' + error.message);
     elements.playAudio.disabled = false;
     elements.playAudio.textContent = '▶ Play Audio';
@@ -335,6 +338,7 @@ async function handleCopy(type) {
   if (result.success) {
     showNotification(`${type === 'morse' ? 'Morse code' : 'Text'} copied to clipboard!`, 'success');
   } else {
+    console.error('[Clipboard Error] Copy failed:', result.error);
     showNotification(`Failed to copy: ${result.error || 'Unknown error'}`, 'error');
   }
 }

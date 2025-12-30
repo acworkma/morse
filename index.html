@@ -4,7 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Translate text to Morse code and vice versa with audio playback">
+  <meta name="theme-color" content="#2563eb">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Morse Translator">
   <title>Morse Code Translator</title>
+  <link rel="icon" type="image/svg+xml" href="/public/favicon.svg">
   <link rel="stylesheet" href="/src/styles/main.css">
 </head>
 <body>
@@ -15,7 +20,7 @@
     </header>
 
     <main>
-      <section class="translator-section">
+      <section class="translator-section" aria-label="Text to Morse translation">
         <div class="input-group">
           <label for="text-input">Text Input</label>
           <input 
@@ -24,19 +29,21 @@
             placeholder="Type text here (A-Z, 0-9, punctuation)"
             maxlength="2000"
             autocomplete="off"
+            aria-describedby="text-input-help"
           />
+          <span id="text-input-help" class="sr-only">Enter text to convert to Morse code. Supports letters, numbers, and punctuation.</span>
         </div>
 
         <div class="output-group">
-          <label>Morse Code Output</label>
-          <div id="morse-output" class="output-display morse-display"></div>
-          <button id="play-audio" class="btn btn-primary" type="button">
+          <label for="morse-output">Morse Code Output</label>
+          <div id="morse-output" class="output-display morse-display" role="region" aria-live="polite"></div>
+          <button id="play-audio" class="btn btn-primary" type="button" aria-label="Play Morse code audio">
             ▶ Play Audio
           </button>
-          <button id="stop-audio" class="btn btn-outline" type="button" disabled>
+          <button id="stop-audio" class="btn btn-outline" type="button" disabled aria-label="Stop audio playback">
             ⏹ Stop
           </button>
-          <button id="copy-morse" class="btn btn-secondary" type="button">
+          <button id="copy-morse" class="btn btn-secondary" type="button" aria-label="Copy Morse code to clipboard">
             📋 Copy Morse
           </button>
         </div>
@@ -52,15 +59,19 @@
               value="20" 
               step="1"
               aria-label="Adjust playback speed in words per minute"
+              aria-valuemin="5"
+              aria-valuemax="40"
+              aria-valuenow="20"
+              aria-valuetext="20 words per minute"
             />
-            <span id="speed-display" class="speed-value">20 WPM</span>
+            <span id="speed-display" class="speed-value" aria-live="polite">20 WPM</span>
           </div>
         </div>
       </section>
 
-      <div class="divider">⇄</div>
+      <div class="divider" aria-hidden="true">⇄</div>
 
-      <section class="translator-section">
+      <section class="translator-section" aria-label="Morse to text translation">
         <div class="input-group">
           <label for="morse-input">Morse Code Input</label>
           <textarea 
@@ -68,25 +79,27 @@
             placeholder="Enter Morse code (dots, dashes, spaces, /)"
             rows="3"
             maxlength="6000"
+            aria-describedby="morse-input-help"
           ></textarea>
+          <span id="morse-input-help" class="sr-only">Enter Morse code using dots, dashes, and spaces. Use forward slash for word separation.</span>
         </div>
 
         <div class="output-group">
-          <label>Text Output</label>
-          <div id="text-output" class="output-display text-display"></div>
-          <button id="copy-text" class="btn btn-secondary" type="button">
+          <label for="text-output">Text Output</label>
+          <div id="text-output" class="output-display text-display" role="region" aria-live="polite"></div>
+          <button id="copy-text" class="btn btn-secondary" type="button" aria-label="Copy text to clipboard">
             📋 Copy Text
           </button>
         </div>
       </section>
 
       <div class="controls">
-        <button id="clear-all" class="btn btn-outline" type="button">
+        <button id="clear-all" class="btn btn-outline" type="button" aria-label="Clear all inputs and outputs">
           🗑️ Clear All
         </button>
       </div>
 
-      <div id="error-messages" class="error-container" role="alert"></div>
+      <div id="error-messages" class="error-container" role="alert" aria-live="assertive"></div>
     </main>
   </div>
 
