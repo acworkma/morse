@@ -33,7 +33,7 @@ jobs:
 
       - name: Run tests
         timeout-minutes: 5
-        run: npm test -- --run
+        run: npm test -- --run --reporter=verbose
 
   build-and-push:
     name: Build and Push Docker Image
